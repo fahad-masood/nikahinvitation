@@ -1,0 +1,13 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: public, max-age=0, must-revalidate
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/social-preview.png
+  Cache-Control: public, max-age=3600
+/nikah.ics
+  Content-Type: text/calendar; charset=utf-8
+  Cache-Control: public, max-age=3600

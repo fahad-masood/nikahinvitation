@@ -1,0 +1,176 @@
+---
+import Arch from '../components/Arch.astro';
+import Botanical from '../components/Botanical.astro';
+import Ornament from '../components/Ornament.astro';
+import Icon from '../components/Icon.astro';
+import '../styles/theme.css';
+import '../styles/invitation.css';
+
+const maps = 'https://maps.app.goo.gl/4JDyNdM4EDK4V9nc8';
+const canonical = Astro.site ? new URL('/', Astro.site).href : undefined;
+const preview = Astro.site ? new URL('/social-preview.png', Astro.site).href : '/social-preview.png';
+const description = 'By the grace of Allah, you are warmly invited to the Nikah of Fahad Masood & Rahnuma Zarrin. Thursday, 12 November 2026 · 6:00 PM IST · Aman Park, New Delhi.';
+const shareText = `By the grace of Allah, you are warmly invited to the Nikah of Fahad Masood & Rahnuma Zarrin.\n\n12 November 2026 | 6:00 PM\n\nYour presence and duas would mean the world to us.${canonical ? `\n\nView the invitation: ${canonical}` : ''}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F7F4EC" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Fahad Masood &amp; Rahnuma Zarrin — The Nikah Ceremony</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Fahad & Rahnuma — The Nikah Ceremony" />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={preview} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Nikah Ceremony · Fahad & Rahnuma · 12 November 2026, in an ivory floral arch." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fahad & Rahnuma — The Nikah Ceremony" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={preview} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/cormorant-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/amiri-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <a class="skip-link" href="#invitation">Skip to invitation</a>
+    <header class="masthead">
+      <a class="monogram" href="#top" aria-label="F&R — Fahad and Rahnuma, back to top">F<span>&amp;</span>R</a>
+      <span class="masthead-caption">A blessed beginning</span>
+      <nav aria-label="Invitation sections">
+        <a href="#invitation">The invitation</a>
+        <a href="#details">The occasion</a>
+        <a href="#venue">The venue</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top" aria-labelledby="couple">
+        <span class="hero-side-note" aria-hidden="true">With love &amp; duas</span>
+        <div class="hero-frame">
+          <Arch class="hero-arch" />
+          <Botanical class="hero-botanical botanical-left" />
+          <Botanical class="hero-botanical botanical-right" />
+          <div class="hero-composition">
+            <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+            <p class="translation">In the Name of Allah, the Most Gracious,<br class="mobile-break" /> the Most Merciful.</p>
+            <p class="eyebrow grace">By the Grace of Allah</p>
+            <p class="ceremony-title">The Nikah Ceremony</p>
+            <h1 class="couple" id="couple">
+              <span>Fahad Masood</span>
+              <span class="couple-ampersand">&amp;</span>
+              <span>Rahnuma Zarrin</span>
+            </h1>
+            <Ornament class="hero-ornament" />
+            <p class="hero-date"><time datetime="2026-11-12T18:00:00+05:30">12 November 2026</time></p>
+            <p class="hero-place">New Delhi, India</p>
+          </div>
+        </div>
+        <a class="discover" href="#invitation"><span>A celebration of faith &amp; love</span><span class="discover-line" aria-hidden="true"></span></a>
+      </section>
+
+      <section class="invitation section-pad" id="invitation" aria-labelledby="invitation-heading">
+        <Ornament class="section-ornament" />
+        <p class="eyebrow" id="invitation-heading">By the grace and infinite blessings of Allah (SWT)</p>
+        <p class="invitation-intro">With hearts filled with<br class="mobile-break" /> gratitude and joy,</p>
+        <p class="family-name">Mr. &amp; Mrs. Masood Alam</p>
+        <p class="invitation-prose">request the honour of your presence and heartfelt duas<br class="desktop-break" /> on the blessed occasion of the</p>
+        <p class="eyebrow occasion-name">Nikah Ceremony</p>
+        <p class="invitation-prose beloved">of their beloved son</p>
+        <div class="family-pair">
+          <div><p class="invited-name">Fahad Masood</p><p class="parent-line">Son of Mr. &amp; Mrs. Masood Alam</p></div>
+          <span class="family-ampersand" aria-hidden="true">&amp;</span>
+          <div><p class="invited-name">Rahnuma Zarrin</p><p class="parent-line">Daughter of Mrs. Shamshad Begum</p></div>
+        </div>
+      </section>
+
+      <section class="blessing" aria-labelledby="blessing-heading">
+        <div class="blessing-inner">
+          <span class="small-rosette" aria-hidden="true">✧</span>
+          <h2 class="eyebrow" id="blessing-heading">A promise of love &amp; mercy</h2>
+          <blockquote>
+            <p>“And He placed between you<br class="desktop-break" /> affection and mercy.”</p>
+            <cite>— An excerpt from the translation of Surah Ar-Rum (30:21)</cite>
+          </blockquote>
+          <p class="journey">Two souls united by the will of Allah, beginning a beautiful<br class="desktop-break" /> journey of faith, companionship, and love.</p>
+          <Ornament class="blessing-ornament" />
+        </div>
+      </section>
+
+      <section class="details section-pad" id="details" aria-labelledby="details-heading">
+        <p class="script-accent">In Shaa Allah</p>
+        <h2 id="details-heading">A day to cherish</h2>
+        <p class="section-subtitle">We would be honoured to have you with us.</p>
+        <div class="occasion-layout">
+          <time class="date-plaque" datetime="2026-11-12">
+            <span class="eyebrow">Thursday</span>
+            <span class="date-day">12</span>
+            <span class="date-month">November</span>
+            <span class="date-year">2026</span>
+          </time>
+          <div class="occasion-information">
+            <div class="detail-row"><span class="detail-index" aria-hidden="true">01</span><div><p class="eyebrow">The time</p><p class="detail-value"><time datetime="2026-11-12T18:00:00+05:30">6:00 PM <span class="timezone">IST</span></time></p></div></div>
+            <div class="detail-row"><span class="detail-index" aria-hidden="true">02</span><div><p class="eyebrow">The setting</p><p class="detail-value">Aman Park</p><p class="detail-description">New Delhi, India</p></div></div>
+            <a class="text-action" href="/nikah.ics" download="Fahad-and-Rahnuma-Nikah.ics"><Icon name="calendar" /> Add to Calendar <span aria-hidden="true">+</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="venue" id="venue" aria-labelledby="venue-heading">
+        <div class="venue-illustration" aria-hidden="true">
+          <div class="venue-arch"><Icon name="pin" /><span class="venue-initials">F <i>&amp;</i> R</span><Ornament class="venue-ornament" /><span class="eyebrow">New Delhi</span></div>
+          <Botanical class="venue-botanical" />
+        </div>
+        <div class="venue-copy">
+          <p class="eyebrow">The place we come together</p>
+          <h2 id="venue-heading">Aman Park,<br />New Delhi</h2>
+          <p>Join us for a beautiful evening<br />of blessings and togetherness.</p>
+          <a class="button button-primary" href={maps} target="_blank" rel="noopener noreferrer">Get Directions <Icon name="arrow" /></a>
+          <p class="venue-footnote">Opens in Google Maps</p>
+        </div>
+      </section>
+
+      <section class="closing section-pad" aria-labelledby="closing-heading">
+        <Botanical class="closing-botanical" />
+        <p class="eyebrow">With love, from our family to yours</p>
+        <h2 id="closing-heading">Your presence is<br />our greatest blessing.</h2>
+        <p class="closing-message">Your gracious presence and sincere duas will make<br class="desktop-break" /> this blessed occasion even more special.</p>
+        <p class="closing-dua">May Allah bless this union with love, mercy,<br class="desktop-break" /> understanding, and endless barakah. Ameen.</p>
+        <Ornament class="section-ornament" />
+        <p class="warm-regards">With warm regards,</p>
+        <p class="closing-family">Mr. &amp; Mrs. Masood Alam &amp; Family</p>
+        <div class="guest-actions">
+          <a class="button button-secondary" href="/nikah.ics" download="Fahad-and-Rahnuma-Nikah.ics"><Icon name="calendar" /> Add to Calendar</a>
+          <a id="share-fallback" class="button button-secondary" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer"><Icon name="share" /> Share Invitation</a>
+          <button id="share-invitation" class="button button-secondary" type="button" hidden><Icon name="share" /> Share Invitation</button>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span>Fahad <i>&amp;</i> Rahnuma</span><p>12 . 11 . 2026 <span aria-hidden="true">·</span> With love &amp; duas</p></footer>
+
+    <dialog id="share-dialog" aria-labelledby="share-heading">
+      <button id="close-share" class="dialog-close" aria-label="Close sharing options" type="button"><Icon name="close" /></button>
+      <p class="eyebrow">With love &amp; duas</p>
+      <h2 id="share-heading">Share this invitation</h2>
+      <p class="dialog-description">A little joy, passed along.</p>
+      <div class="share-options">
+        <a id="whatsapp-share" class="button button-primary" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer">Share on WhatsApp <Icon name="arrow" /></a>
+        <button id="copy-link" class="button button-secondary" type="button"><Icon name="copy" /> Copy invitation link</button>
+        <button id="share-native" class="button button-secondary" type="button" hidden><Icon name="share" /> More sharing options</button>
+      </div>
+      <p id="share-status" class="share-status" aria-live="polite" aria-atomic="true" role="status"></p>
+    </dialog>
+    <script>
+      import '../scripts/invitation';
+    </script>
+  </body>
+</html>

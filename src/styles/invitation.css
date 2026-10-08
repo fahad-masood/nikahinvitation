@@ -1,0 +1,249 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { margin: 0; background: var(--ivory); color: var(--emerald); font-family: var(--sans); font-weight: 400; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--powder); color: var(--emerald); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--emerald); outline-offset: 5px; }
+button[hidden], a[hidden] { display: none !important; }
+p, h1, h2, blockquote { margin: 0; }
+h1, h2 { font-weight: 400; }
+svg { display: block; }
+.skip-link { position: fixed; left: 1rem; top: -5rem; padding: 1rem; background: var(--emerald); color: var(--white); z-index: 10; }
+.skip-link:focus { top: 1rem; }
+.masthead { height: 88px; max-width: 1440px; margin: 0 auto; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: var(--hairline); }
+.monogram { font-family: var(--serif); font-size: 29px; letter-spacing: -2px; min-height: 44px; display: flex; align-items: center; }
+.monogram span { font-size: 19px; font-style: italic; color: #8C7242; margin: 0 4px; }
+.masthead-caption { font-size: 10px; letter-spacing: .21em; text-transform: uppercase; margin-left: 6%; }
+nav { display: flex; gap: 27px; }
+nav a { display: flex; align-items: center; min-height: 44px; min-width: 44px; font-size: 10px; letter-spacing: .035em; }
+nav a:hover { color: #80673B; }
+.eyebrow { font-family: var(--sans); font-size: 10px; line-height: 1.8; letter-spacing: .19em; text-transform: uppercase; }
+.hero { position: relative; padding: 24px 36px 0; text-align: center; }
+.hero-frame { width: min(820px, 100%); height: 800px; margin: 0 auto; position: relative; }
+.hero-arch { position: absolute; width: 100%; height: 100%; inset: 0; color: var(--gold); }
+.hero-botanical { position: absolute; top: 0; width: 270px; height: auto; pointer-events: none; }
+.botanical-left { left: -80px; transform: rotate(-8deg); }
+.botanical-right { right: -80px; transform: scaleX(-1) rotate(-8deg); }
+.hero-composition { position: relative; padding-top: 105px; z-index: 1; }
+.bismillah { font-family: var(--arabic); font-size: 35px; line-height: 1.85; font-weight: 400; }
+.translation { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: #59655E; }
+.mobile-break { display: none; }
+.grace { margin-top: 29px; font-size: 9px; letter-spacing: .22em; }
+.ceremony-title { font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.5; margin-top: 8px; }
+.couple { font-family: var(--serif); font-size: clamp(62px, 7.8vw, 99px); line-height: 1.03; letter-spacing: -.045em; display: flex; flex-direction: column; margin: 22px auto 0; }
+.couple-ampersand { color: #8C7242; font-style: italic; font-size: .48em; line-height: 1.3; margin: 6px 0 3px; }
+.hero-ornament { width: 156px; height: 22px; margin: 28px auto 20px; color: var(--gold); }
+.hero-date { font-family: var(--serif); font-size: 26px; letter-spacing: .015em; }
+.hero-place { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; margin-top: 11px; }
+.hero-side-note { position: absolute; left: 4%; top: 47%; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 8px; letter-spacing: .24em; text-transform: uppercase; color: #6A746B; }
+.discover { display: flex; flex-direction: column; align-items: center; gap: 19px; padding: 22px 20px 0; font-size: 8px; letter-spacing: .22em; text-transform: uppercase; }
+.discover-line { height: 46px; width: 1px; background: var(--gold); opacity: .6; }
+.section-pad { padding: var(--section-space) 24px; }
+.invitation { text-align: center; padding-top: 80px; }
+.section-ornament { width: 128px; height: 21px; margin: 0 auto 33px; color: var(--gold); }
+.invitation > .eyebrow { max-width: 540px; margin: 0 auto; font-size: 9px; }
+.invitation-intro { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.4; margin-top: 33px; }
+.family-name { font-family: var(--serif); font-size: 36px; line-height: 1.3; margin-top: 15px; }
+.invitation-prose { font-family: var(--serif); font-size: 23px; line-height: 1.55; color: #52615A; margin-top: 23px; }
+.invitation > .occasion-name { margin-top: 22px; font-size: 11px; letter-spacing: .23em; }
+.invitation .beloved { margin-top: 9px; font-size: 20px; }
+.family-pair { display: flex; justify-content: center; align-items: center; gap: 30px; margin: 36px auto 0; }
+.invited-name { font-family: var(--serif); font-size: 39px; letter-spacing: -.02em; }
+.parent-line { font-size: 9px; line-height: 1.7; margin-top: 9px; color: #53625A; }
+.family-ampersand { font-family: var(--serif); font-style: italic; font-size: 30px; color: #8C7242; }
+.blessing { background: var(--emerald); color: var(--ivory); padding: 20px; margin: 0 32px; position: relative; }
+.blessing-inner { border: 1px solid rgb(180 150 93 / 46%); padding: 57px 24px 47px; text-align: center; }
+.small-rosette { font-size: 25px; color: var(--gold); display: block; margin-bottom: 22px; }
+.blessing .eyebrow { color: #E8DABD; font-size: 9px; }
+blockquote p { font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); line-height: 1.15; letter-spacing: -.015em; margin: 25px auto 20px; }
+blockquote cite { display: block; font-family: var(--sans); font-size: 9px; line-height: 1.8; font-style: normal; color: #D9DDCF; }
+.journey { font-family: var(--serif); font-size: 19px; line-height: 1.5; margin-top: 31px; color: #E4E5D9; }
+.blessing-ornament { width: 115px; height: 20px; color: var(--gold); margin: 26px auto 0; }
+.details { text-align: center; }
+.script-accent { font-family: var(--serif); font-style: italic; font-size: 25px; color: #80673B; }
+h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 62px); line-height: 1.07; letter-spacing: -.035em; }
+.details h2 { margin-top: 13px; }
+.section-subtitle { font-family: var(--serif); font-size: 21px; color: #59655E; margin-top: 18px; line-height: 1.5; }
+.occasion-layout { display: flex; align-items: center; justify-content: center; gap: 70px; margin: 48px auto 0; }
+.date-plaque { width: 268px; min-height: 350px; border: var(--hairline); border-radius: 135px 135px 0 0; background: var(--white); padding: 61px 24px 33px; display: flex; flex-direction: column; align-items: center; position: relative; }
+.date-plaque::before { position: absolute; content: ''; inset: 7px; border: 1px solid rgb(180 150 93 / 24%); border-radius: 129px 129px 0 0; pointer-events: none; }
+.date-plaque .eyebrow { font-size: 9px; letter-spacing: .24em; }
+.date-day { font-family: var(--serif); font-size: 126px; line-height: .95; letter-spacing: -.07em; margin-top: 10px; padding-right: 9px; }
+.date-month { font-family: var(--serif); font-size: 28px; margin-top: 14px; }
+.date-year { font-size: 9px; letter-spacing: .35em; padding-left: .35em; margin-top: 21px; color: #80673B; }
+.occasion-information { text-align: left; width: 275px; }
+.detail-row { display: flex; gap: 23px; padding: 26px 0; border-bottom: var(--hairline); }
+.detail-row:first-child { padding-top: 0; }
+.detail-index { font-family: var(--serif); color: #80673B; font-size: 14px; line-height: 1.5; }
+.detail-row .eyebrow { font-size: 9px; letter-spacing: .18em; }
+.detail-value { font-family: var(--serif); font-size: 37px; line-height: 1.2; margin-top: 8px; }
+.timezone { font-family: var(--sans); font-size: 9px; letter-spacing: .1em; vertical-align: middle; margin-left: 4px; }
+.detail-description { font-size: 11px; margin-top: 11px; color: #59655E; }
+.text-action { display: flex; align-items: center; gap: 13px; min-height: 50px; margin-top: 15px; font-size: 11px; }
+.text-action > span { margin-left: auto; font-size: 19px; font-family: var(--serif); color: #80673B; }
+.text-action:hover { color: #80673B; }
+.venue { background: var(--powder); display: flex; gap: 80px; align-items: center; justify-content: center; padding: 72px 40px; position: relative; }
+.venue-illustration { width: 320px; height: 346px; position: relative; flex-shrink: 0; }
+.venue-arch { position: absolute; inset: 0 28px 0 0; border: 1px solid rgb(180 150 93 / 60%); border-radius: 160px 160px 0 0; background: rgb(255 252 247 / 65%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 20px; }
+.venue-arch > svg:first-child { color: #80673B; width: 25px; height: 25px; }
+.venue-initials { font-family: var(--serif); font-size: 64px; letter-spacing: -.05em; margin-top: 22px; }
+.venue-initials i { font-size: 35px; color: #80673B; }
+.venue-ornament { color: var(--gold); width: 110px; height: 22px; margin: 8px 0 20px; }
+.venue-arch .eyebrow { font-size: 8px; }
+.venue-botanical { position: absolute; width: 180px; height: auto; bottom: -27px; left: -75px; transform: rotate(-19deg); }
+.venue-copy { width: 360px; position: relative; }
+.venue-copy .eyebrow { font-size: 9px; }
+.venue h2 { margin-top: 22px; font-size: 57px; }
+.venue-copy > p:not(.eyebrow, .venue-footnote) { font-family: var(--serif); font-size: 21px; line-height: 1.5; color: #52615A; margin-top: 24px; }
+.button { display: inline-flex; justify-content: center; align-items: center; gap: 16px; min-height: 50px; border: 1px solid transparent; border-radius: 0; padding: 15px 24px; font-family: var(--sans); font-size: 11px; font-weight: 400; line-height: 1.4; letter-spacing: .02em; transition: background-color .2s, color .2s, border-color .2s; }
+.button-primary { background: var(--emerald); color: var(--white); }
+.button-primary:hover { background: #254A43; }
+.button-secondary { border-color: rgb(180 150 93 / 60%); background: transparent; color: var(--emerald); }
+.button-secondary:hover { background: var(--white); border-color: #80673B; }
+.venue .button { margin-top: 26px; }
+.venue-footnote { font-size: 8px; letter-spacing: .04em; margin-top: 12px; color: #59655E; }
+.closing { text-align: center; padding-top: 40px; }
+.closing-botanical { width: 137px; height: 170px; margin: 0 auto 15px; transform: rotate(21deg); }
+.closing > .eyebrow { font-size: 9px; }
+.closing h2 { margin-top: 24px; }
+.closing-message { font-family: var(--serif); font-size: 23px; line-height: 1.5; margin-top: 27px; color: #52615A; }
+.closing-dua { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; margin-top: 20px; color: #52615A; }
+.closing .section-ornament { margin-top: 32px; margin-bottom: 26px; }
+.warm-regards { font-family: var(--serif); font-size: 19px; font-style: italic; }
+.closing-family { font-family: var(--serif); font-size: 28px; line-height: 1.4; margin-top: 10px; }
+.guest-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 13px; margin: 35px auto 0; }
+.footer { border-top: var(--hairline); margin: 0 5%; padding: 30px 0 38px; display: flex; align-items: center; justify-content: space-between; }
+.footer > span { font-family: var(--serif); font-size: 25px; }
+.footer i { color: #80673B; margin: 0 3px; }
+.footer > p { font-size: 8px; letter-spacing: .1em; }
+.footer > p span { padding: 0 12px; color: #80673B; }
+dialog { border: var(--hairline); background: var(--ivory); color: var(--emerald); padding: 45px 32px 25px; max-width: 420px; width: calc(100% - 32px); text-align: center; }
+dialog::backdrop { background: rgb(24 59 54 / 45%); }
+dialog h2 { font-size: 38px; margin-top: 13px; }
+.dialog-close { position: absolute; right: 6px; top: 6px; border: 0; background: transparent; color: var(--emerald); min-width: 44px; min-height: 44px; display: grid; place-items: center; }
+.dialog-description { font-family: var(--serif); font-size: 20px; font-style: italic; margin-top: 11px; }
+.share-options { display: grid; gap: 11px; margin-top: 26px; }
+.share-status { min-height: 2.8em; font-size: 11px; line-height: 1.5; padding-top: 15px; }
+@media (min-width: 901px) { .hero-composition { animation: settle 1s ease-out both; } }
+@keyframes settle { from { transform: translateY(4px); } to { transform: translateY(0); } }
+@media (max-width: 1050px) {
+  .hero-botanical { width: 235px; }
+  .botanical-left { left: 8px; }
+  .botanical-right { right: 8px; }
+  .hero-side-note { display: none; }
+  .hero-frame { height: 770px; }
+  .hero-composition { padding-top: 107px; }
+  .venue { gap: 40px; }
+  .venue-botanical { left: -35px; width: 160px; }
+}
+@media (max-width: 900px) {
+  .masthead { height: 68px; padding: 0 24px; }
+  .masthead-caption { display: none; }
+  nav { gap: 19px; }
+  nav a { font-size: 9px; }
+  .monogram { font-size: 26px; }
+  .hero { padding: 14px 17px 0; }
+  .hero-frame { height: 640px; max-width: 530px; }
+  .hero-arch { width: 100%; height: 100%; }
+  .hero-botanical { top: 0; width: 136px; }
+  .botanical-left { left: 0; }
+  .botanical-right { right: 0; }
+  .hero-composition { padding-top: 127px; }
+  .bismillah { font-size: 29px; line-height: 1.7; }
+  .translation { font-size: 14px; line-height: 1.5; }
+  .mobile-break { display: initial; }
+  .grace { font-size: 8px; margin-top: 24px; letter-spacing: .16em; }
+  .ceremony-title { font-size: 21px; margin-top: 4px; }
+  .couple { font-size: clamp(40px, 12.8vw, 65px); letter-spacing: -.04em; margin-top: 16px; line-height: 1.1; }
+  .couple-ampersand { font-size: .53em; margin: 3px 0 1px; line-height: 1.15; }
+  .hero-ornament { margin: 19px auto 14px; width: 115px; height: 17px; }
+  .hero-date { font-size: 24px; }
+  .hero-place { font-size: 8px; margin-top: 9px; }
+  .discover { font-size: 7px; padding-top: 0; gap: 16px; }
+  .discover-line { height: 35px; }
+  .invitation { padding-top: 60px; }
+  .invitation > .eyebrow { max-width: 300px; font-size: 8px; line-height: 2; }
+  .section-ornament { margin-bottom: 26px; }
+  .invitation-intro { font-size: 25px; margin-top: 24px; }
+  .family-name { font-size: 31px; margin-top: 18px; }
+  .invitation-prose { font-size: 21px; line-height: 1.5; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .desktop-break { display: none; }
+  .family-pair { flex-direction: column; gap: 20px; margin-top: 29px; }
+  .invited-name { font-size: 37px; }
+  .family-ampersand { line-height: 1; }
+  .parent-line { font-size: 9px; margin-top: 5px; }
+  .blessing { margin: 0 14px; padding: 10px; }
+  .blessing-inner { padding: 42px 18px 36px; }
+  .blessing .eyebrow { font-size: 8px; }
+  blockquote p { font-size: 36px; margin-top: 23px; }
+  blockquote cite { font-size: 8px; max-width: 250px; margin: 0 auto; }
+  .journey { font-size: 19px; line-height: 1.5; margin-top: 26px; }
+  .details h2 { font-size: 45px; }
+  .section-subtitle { font-size: 20px; }
+  .occasion-layout { gap: 30px; margin-top: 34px; }
+  .date-plaque { width: 212px; min-height: 315px; padding-top: 52px; }
+  .date-day { font-size: 105px; }
+  .date-month { font-size: 26px; }
+  .occasion-information { width: 220px; }
+  .detail-row { gap: 17px; }
+  .detail-value { font-size: 31px; }
+  .venue { padding: 58px 28px 62px; gap: 40px; }
+  .venue-illustration { width: 240px; height: 300px; }
+  .venue-arch { right: 0; }
+  .venue-botanical { width: 140px; left: -40px; bottom: -20px; }
+  .venue h2 { font-size: 43px; }
+  .venue-copy { width: 275px; }
+  .venue-copy > p:not(.eyebrow, .venue-footnote) { font-size: 20px; }
+  .closing h2 { font-size: 44px; }
+  .closing-message { font-size: 21px; }
+  .closing-dua { font-size: 20px; }
+  .closing-family { font-size: 26px; }
+}
+@media (max-width: 540px) {
+  .hero-frame { height: 605px; }
+  .hero-composition { padding-top: 114px; }
+  .hero-botanical { width: 96px; top: -5px; }
+  .botanical-left { left: -5px; }
+  .botanical-right { right: -5px; }
+  .bismillah { font-size: 27px; }
+  .occasion-layout { gap: 28px; flex-direction: column; }
+  .date-plaque { width: 230px; min-height: 330px; }
+  .occasion-information { width: min(290px, 100%); }
+  .detail-row { padding-top: 22px; padding-bottom: 22px; }
+  .detail-value { font-size: 35px; }
+  .venue { flex-direction: column; gap: 47px; text-align: center; }
+  .venue-illustration { width: 220px; height: 265px; }
+  .venue-botanical { width: 135px; left: -45px; }
+  .venue-initials { font-size: 56px; margin-top: 15px; }
+  .venue-copy { width: 100%; max-width: 360px; }
+  .venue h2 { font-size: 48px; margin-top: 17px; }
+  .venue-copy > p:not(.eyebrow, .venue-footnote) { margin-top: 19px; }
+  .closing-botanical { width: 120px; height: 149px; }
+  .guest-actions { gap: 11px; }
+  .guest-actions .button { width: 235px; }
+  .footer { flex-direction: column; gap: 15px; padding: 29px 0 32px; }
+}
+@media (max-width: 360px) {
+  .masthead { padding: 0 18px; }
+  nav { gap: 12px; }
+  nav a { font-size: 9px; }
+  .hero-frame { height: 570px; }
+  .hero-botanical { width: 86px; top: -5px; }
+  .hero-composition { padding-top: 102px; }
+  .bismillah { font-size: 25px; }
+  .translation { font-size: 13px; }
+  .grace { margin-top: 21px; }
+  .hero-date { font-size: 22px; }
+  .section-pad { padding-left: 20px; padding-right: 20px; }
+  .family-name { font-size: 28px; }
+  .invited-name { font-size: 34px; }
+  blockquote p { font-size: 32px; }
+  .closing h2 { font-size: 40px; }
+  .closing-family { font-size: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

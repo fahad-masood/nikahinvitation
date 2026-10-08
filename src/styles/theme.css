@@ -1,0 +1,18 @@
+/* Portable wedding identity. Keep these tokens and components together. */
+:root {
+  --ivory: #F7F4EC;
+  --emerald: #183B36;
+  --gold: #B4965D;
+  --powder: #E6EFF1;
+  --white: #FFFCF7;
+  --ink: #272C2A;
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'Inter', Arial, sans-serif;
+  --arabic: 'Amiri', 'Traditional Arabic', serif;
+  --hairline: 1px solid rgb(180 150 93 / 38%);
+  --section-space: clamp(5rem, 10vw, 8rem);
+}
+@font-face { font-family: 'Cormorant Garamond'; src: url('/fonts/cormorant-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('/fonts/cormorant-400-italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Amiri'; src: url('/fonts/amiri-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
