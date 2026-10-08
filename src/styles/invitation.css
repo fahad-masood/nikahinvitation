@@ -57,8 +57,18 @@ nav a:hover { color: #80673B; }
 .blessing-inner { border: 1px solid rgb(180 150 93 / 46%); padding: 57px 24px 47px; text-align: center; }
 .small-rosette { font-size: 25px; color: var(--gold); display: block; margin-bottom: 22px; }
 .blessing .eyebrow { color: #E8DABD; font-size: 9px; }
-blockquote p { font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); line-height: 1.15; letter-spacing: -.015em; margin: 25px auto 20px; }
-blockquote cite { display: block; font-family: var(--sans); font-size: 9px; line-height: 1.8; font-style: normal; color: #D9DDCF; }
+.quran-verse { max-width: 700px; margin: 27px auto 0; }
+.quran-verse .verse-arabic { font-family: var(--arabic); font-size: clamp(25px, 3vw, 33px); line-height: 2.15; font-weight: 400; letter-spacing: normal; }
+.quran-verse .verse-translation { font-family: var(--serif); font-size: clamp(23px, 2.8vw, 30px); line-height: 1.5; margin-top: 25px; }
+.verse-reference { margin-top: 25px; font-family: var(--sans); font-size: 10px; line-height: 1.8; }
+.verse-reference cite { font-style: normal; }
+.verse-reference a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-decoration-color: rgb(180 150 93 / 60%); text-underline-offset: 4px; }
+.verse-reference a:hover { text-decoration-color: currentColor; }
+.verse-translator { display: block; font-size: 9px; opacity: .85; }
+.blessing .verse-reference { color: #D9DDCF; }
+.blessing a:focus-visible { outline-color: var(--ivory); }
+.quran-prayer { text-align: center; padding-bottom: 0; }
+.quran-prayer .verse-translation { color: #52615A; }
 .journey { font-family: var(--serif); font-size: 19px; line-height: 1.5; margin-top: 31px; color: #E4E5D9; }
 .blessing-ornament { width: 115px; height: 20px; color: var(--gold); margin: 26px auto 0; }
 .details { text-align: center; }
@@ -119,13 +129,6 @@ h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 62px); line-height: 
 .footer i { color: #80673B; margin: 0 3px; }
 .footer > p { font-size: 8px; letter-spacing: .1em; }
 .footer > p span { padding: 0 12px; color: #80673B; }
-dialog { border: var(--hairline); background: var(--ivory); color: var(--emerald); padding: 45px 32px 25px; max-width: 420px; width: calc(100% - 32px); text-align: center; }
-dialog::backdrop { background: rgb(24 59 54 / 45%); }
-dialog h2 { font-size: 38px; margin-top: 13px; }
-.dialog-close { position: absolute; right: 6px; top: 6px; border: 0; background: transparent; color: var(--emerald); min-width: 44px; min-height: 44px; display: grid; place-items: center; }
-.dialog-description { font-family: var(--serif); font-size: 20px; font-style: italic; margin-top: 11px; }
-.share-options { display: grid; gap: 11px; margin-top: 26px; }
-.share-status { min-height: 2.8em; font-size: 11px; line-height: 1.5; padding-top: 15px; }
 @media (min-width: 901px) { .hero-composition { animation: settle 1s ease-out both; } }
 @keyframes settle { from { transform: translateY(4px); } to { transform: translateY(0); } }
 @media (max-width: 1050px) {
@@ -177,8 +180,10 @@ dialog h2 { font-size: 38px; margin-top: 13px; }
   .blessing { margin: 0 14px; padding: 10px; }
   .blessing-inner { padding: 42px 18px 36px; }
   .blessing .eyebrow { font-size: 8px; }
-  blockquote p { font-size: 36px; margin-top: 23px; }
-  blockquote cite { font-size: 8px; max-width: 250px; margin: 0 auto; }
+  .quran-verse { margin-top: 23px; }
+  .quran-verse .verse-arabic { font-size: 26px; line-height: 2.15; }
+  .quran-verse .verse-translation { font-size: 23px; }
+  .verse-reference { font-size: 9px; }
   .journey { font-size: 19px; line-height: 1.5; margin-top: 26px; }
   .details h2 { font-size: 45px; }
   .section-subtitle { font-size: 20px; }
@@ -239,7 +244,8 @@ dialog h2 { font-size: 38px; margin-top: 13px; }
   .section-pad { padding-left: 20px; padding-right: 20px; }
   .family-name { font-size: 28px; }
   .invited-name { font-size: 34px; }
-  blockquote p { font-size: 32px; }
+  .quran-verse .verse-arabic { font-size: 24px; }
+  .quran-verse .verse-translation { font-size: 22px; }
   .closing h2 { font-size: 40px; }
   .closing-family { font-size: 24px; }
 }

@@ -35,8 +35,7 @@ test('published files contain exclusively this ceremony', () => {
 test('directions and calendar controls use real destinations', () => {
   assert.match(html, /href="https:\/\/maps\.app\.goo\.gl\/4JDyNdM4EDK4V9nc8"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
   assert.equal((html.match(/href="\/nikah\.ics"/g) || []).length, 2);
-  assert.match(html, /id="whatsapp-share"/);
-  assert.match(html, /aria-live="polite" aria-atomic="true" role="status"/);
+  assert.doesNotMatch(html, /share-invitation|share-dialog|share-fallback|wa\.me|navigator\.share|Share Invitation/i);
 });
 
 test('calendar is interoperable and has the exact start in Asia/Kolkata', () => {
@@ -73,14 +72,29 @@ test('invitation downloads no remote fonts, scripts, or styles', () => {
     assert.equal(font.subarray(0, 4).toString(), 'wOF2');
     fontBytes += font.length;
   }
-  assert.ok(fontBytes < 100_000, `Font budget exceeded: ${fontBytes}`);
+  assert.ok(fontBytes < 110_000, `Font budget exceeded: ${fontBytes}`);
   assert.ok(gzipSync(html).length < 25_000, 'Compressed HTML exceeds the invitation budget');
 });
 
 test('essential invitation and controls exist without client rendering', () => {
   const noScript = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '');
   assert.match(noScript, /<h1[^>]*id="couple"/);
-  assert.match(noScript, /id="share-fallback"[^>]*href="https:\/\/wa\.me\/\?text=/);
+  assert.doesNotMatch(html, /<script\b/);
   assert.match(noScript, /<time[^>]*datetime="2026-11-12"/);
   assert.match(noScript, /id="venue"/);
+});
+
+test('both Quran verses include complete Arabic, translations, and references', () => {
+  const verses = JSON.parse(readFileSync(join(root, 'src/data/quran-verses.json'), 'utf8'));
+  assert.deepEqual(verses.map(verse => verse.reference), ['30:21', '25:74']);
+  for (const verse of verses) {
+    assert.ok(text.includes(verse.arabic), `Arabic missing for ${verse.reference}`);
+    assert.ok(text.includes(verse.translation.replace(/"/g, '&quot;')), `Translation missing for ${verse.reference}`);
+    assert.ok(text.includes(`Surah ${verse.surah} (${verse.reference})`));
+    assert.ok(html.includes(`href="${verse.url}"`));
+  }
+  assert.match(text, /find tranquillity in them; and He placed between you affection and mercy/);
+  assert.match(text, /grant us from among our wives and offspring comfort to our eyes/);
+  assert.equal((html.match(/class="verse-arabic" lang="ar" dir="rtl"/g) || []).length, 2);
+  assert.equal((text.match(/English translation: Sahih International/g) || []).length, 2);
 });

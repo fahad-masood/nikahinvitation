@@ -1,0 +1,22 @@
+---
+interface Props {
+  verse: {
+    arabic: string;
+    translation: string;
+    surah: string;
+    reference: string;
+    url: string;
+  };
+}
+const { verse } = Astro.props;
+---
+<figure class="quran-verse">
+  <blockquote cite={verse.url}>
+    <p class="verse-arabic" lang="ar" dir="rtl">{verse.arabic}</p>
+    <p class="verse-translation">{verse.translation}</p>
+  </blockquote>
+  <figcaption class="verse-reference">
+    <cite><a href={verse.url} target="_blank" rel="noopener noreferrer">Surah {verse.surah} ({verse.reference})</a></cite>
+    <span class="verse-translator">English translation: Sahih International</span>
+  </figcaption>
+</figure>

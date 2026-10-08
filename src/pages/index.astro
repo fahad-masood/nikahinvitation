@@ -3,6 +3,8 @@ import Arch from '../components/Arch.astro';
 import Botanical from '../components/Botanical.astro';
 import Ornament from '../components/Ornament.astro';
 import Icon from '../components/Icon.astro';
+import QuranVerse from '../components/QuranVerse.astro';
+import verses from '../data/quran-verses.json';
 import '../styles/theme.css';
 import '../styles/invitation.css';
 
@@ -10,7 +12,6 @@ const maps = 'https://maps.app.goo.gl/4JDyNdM4EDK4V9nc8';
 const canonical = Astro.site ? new URL('/', Astro.site).href : undefined;
 const preview = Astro.site ? new URL('/social-preview.png', Astro.site).href : '/social-preview.png';
 const description = 'By the grace of Allah, you are warmly invited to the Nikah of Fahad Masood & Rahnuma Zarrin. Thursday, 12 November 2026 · 6:00 PM IST · Aman Park, New Delhi.';
-const shareText = `By the grace of Allah, you are warmly invited to the Nikah of Fahad Masood & Rahnuma Zarrin.\n\n12 November 2026 | 6:00 PM\n\nYour presence and duas would mean the world to us.${canonical ? `\n\nView the invitation: ${canonical}` : ''}`;
 ---
 <!doctype html>
 <html lang="en">
@@ -39,7 +40,7 @@ const shareText = `By the grace of Allah, you are warmly invited to the Nikah of
     <meta name="twitter:image" content={preview} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/cormorant-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/amiri-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/amiri-400-normal-v2.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <a class="skip-link" href="#invitation">Skip to invitation</a>
@@ -97,10 +98,7 @@ const shareText = `By the grace of Allah, you are warmly invited to the Nikah of
         <div class="blessing-inner">
           <span class="small-rosette" aria-hidden="true">✧</span>
           <h2 class="eyebrow" id="blessing-heading">A promise of love &amp; mercy</h2>
-          <blockquote>
-            <p>“And He placed between you<br class="desktop-break" /> affection and mercy.”</p>
-            <cite>— An excerpt from the translation of Surah Ar-Rum (30:21)</cite>
-          </blockquote>
+          <QuranVerse verse={verses[0]} />
           <p class="journey">Two souls united by the will of Allah, beginning a beautiful<br class="desktop-break" /> journey of faith, companionship, and love.</p>
           <Ornament class="blessing-ornament" />
         </div>
@@ -139,6 +137,12 @@ const shareText = `By the grace of Allah, you are warmly invited to the Nikah of
         </div>
       </section>
 
+      <section class="quran-prayer section-pad" aria-labelledby="prayer-heading">
+        <Ornament class="section-ornament" />
+        <h2 class="eyebrow" id="prayer-heading">A prayer for a blessed family</h2>
+        <QuranVerse verse={verses[1]} />
+      </section>
+
       <section class="closing section-pad" aria-labelledby="closing-heading">
         <Botanical class="closing-botanical" />
         <p class="eyebrow">With love, from our family to yours</p>
@@ -150,27 +154,9 @@ const shareText = `By the grace of Allah, you are warmly invited to the Nikah of
         <p class="closing-family">Mr. &amp; Mrs. Masood Alam &amp; Family</p>
         <div class="guest-actions">
           <a class="button button-secondary" href="/nikah.ics" download="Fahad-and-Rahnuma-Nikah.ics"><Icon name="calendar" /> Add to Calendar</a>
-          <a id="share-fallback" class="button button-secondary" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer"><Icon name="share" /> Share Invitation</a>
-          <button id="share-invitation" class="button button-secondary" type="button" hidden><Icon name="share" /> Share Invitation</button>
         </div>
       </section>
     </main>
     <footer class="footer"><span>Fahad <i>&amp;</i> Rahnuma</span><p>12 . 11 . 2026 <span aria-hidden="true">·</span> With love &amp; duas</p></footer>
-
-    <dialog id="share-dialog" aria-labelledby="share-heading">
-      <button id="close-share" class="dialog-close" aria-label="Close sharing options" type="button"><Icon name="close" /></button>
-      <p class="eyebrow">With love &amp; duas</p>
-      <h2 id="share-heading">Share this invitation</h2>
-      <p class="dialog-description">A little joy, passed along.</p>
-      <div class="share-options">
-        <a id="whatsapp-share" class="button button-primary" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer">Share on WhatsApp <Icon name="arrow" /></a>
-        <button id="copy-link" class="button button-secondary" type="button"><Icon name="copy" /> Copy invitation link</button>
-        <button id="share-native" class="button button-secondary" type="button" hidden><Icon name="share" /> More sharing options</button>
-      </div>
-      <p id="share-status" class="share-status" aria-live="polite" aria-atomic="true" role="status"></p>
-    </dialog>
-    <script>
-      import '../scripts/invitation';
-    </script>
   </body>
 </html>
